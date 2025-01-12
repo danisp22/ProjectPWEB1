@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengelolaan Fasilitas Hotel</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+</head>
+
+<body>
+    <header class="text-white text-center py-5" style="background-color: #3F72AF;">
+        <h2>Fasilitas Hotel</h2>
+    </header>
+
+    <div class="container mt-5">
+
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addFacilityModal">Tambah
+            Fasilitas</button>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Fasilitas</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Pusat Kebugaran</td>
+                    <td> Gym lengkap dengan peralatan modern untuk menjaga kebugaran selama menginap</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editFacilityModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Taman atau Rooftop Garden</td>
+                    <td>Area hijau untuk bersantai dengan pemandangan indah.</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editFacilityModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="addFacilityModal" tabindex="-1" aria-labelledby="addFacilityModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFacilityModalLabel">Tambah Fasilitas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="facilityName" class="form-label">Nama Fasilitas</label>
+                            <input type="text" class="form-control" id="facilityName"
+                                placeholder="Masukkan nama fasilitas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="facilityDescription" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="facilityDescription" rows="3"
+                                placeholder="Masukkan deskripsi fasilitas"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editFacilityModal" tabindex="-1" aria-labelledby="editFacilityModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editFacilityModalLabel">Edit Fasilitas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editFacilityName" class="form-label">Nama Fasilitas</label>
+                            <input type="text" class="form-control" id="editFacilityName" value="Wi-Fi Gratis">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFacilityDescription" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="editFacilityDescription"
+                                rows="3">Wi-Fi gratis di seluruh area hotel</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Perbarui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

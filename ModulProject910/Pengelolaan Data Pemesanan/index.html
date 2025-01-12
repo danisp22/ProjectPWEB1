@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Konsumen</title>
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Pengelolaan Pesanan Tamu</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Pemesann</th>
+                    <th>Hari/Tanggal Booking</th>
+                    <th>Jenis Kamar</th>
+                    <th>Status Pemesanan</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Masnun</td>
+                    <td>31-12-2024</td>
+                    <td>Single Room</td>
+                    <td><span class="btn btn-outline-success">Dikonfirmasi</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#viewOrderModal">Lihat</button>
+                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editOrderModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Batalkan</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Fatra</td>
+                    <td>01-01-2025</td>
+                    <td>Double Room</td>
+                    <td><span class="btn btn-outline-danger">Dipending</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#viewOrderModal">Lihat</button>
+                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editOrderModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Batalkan</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="viewOrderModal" tabindex="-1" aria-labelledby="viewOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewOrderModalLabel">Detail Pemesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nama Konsumen:</strong> Masnun</p>
+                    <p><strong>Tanggal Pemesanan:</strong> 31-12-2024</p>
+                    <p><strong>Jenis Kamar:</strong> Single Room</p>
+                    <p><strong>Status:</strong> Dikonfirmasi</p>
+                    <p><strong>Jumlah Malam:</strong> 2 malam</p>
+                    <p><strong>Total Harga:</strong> Rp 600,000</p>
+                    <p><strong>Catatan Khusus:</strong> Tidak ada</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editOrderModal" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editOrderModalLabel">Edit Pemesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editCustomerName" class="form-label">Nama Konsumen</label>
+                            <input type="text" class="form-control" id="editCustomerName" value="Masnun">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRoomType" class="form-label">Jenis Kamar</label>
+                            <select class="form-select" id="editRoomType">
+                                <option value="Single Room" selected>Single Room</option>
+                                <option value="Double Room">Double Room</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editBookingDate" class="form-label">Tanggal Pemesanan</label>
+                            <input type="date" class="form-control" id="editBookingDate" value="2024-12-31">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editBookingStatus" class="form-label">Status Pemesanan</label>
+                            <select class="form-select" id="editBookingStatus">
+                                <option value="confirmed" selected>Dikonfirmasi</option>
+                                <option value="pending">Dipending</option>
+                                <option value="cancelled">Dibatalkan</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Perbarui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

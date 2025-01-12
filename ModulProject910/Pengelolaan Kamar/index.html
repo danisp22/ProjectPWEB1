@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Jenis Kamar</title>
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Kelola Jenis Kamar</h2>
+
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addRoomTypeModal">Tambah Jenis Kamar</button>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Jenis Kamar</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Pilihan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Single Room</td>
+                    <td>Kamar untuk 1 orang</td>
+                    <td>Rp 300,000</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editRoomTypeModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Double Room</td>
+                    <td>Kamar untuk 2 orang</td>
+                    <td>Rp 600,000</td>
+                    <td>
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#editRoomTypeModal">Edit</button>
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="addRoomTypeModal" tabindex="-1" aria-labelledby="addRoomTypeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addRoomTypeModalLabel">Tambah Jenis Kamar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="roomTypeName" class="form-label">Nama Jenis Kamar</label>
+                            <input type="text" class="form-control" id="roomTypeName"
+                                placeholder="Masukkan nama jenis kamar">
+                        </div>
+                        <div class="mb-3">
+                            <label for="roomTypeDescription" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="roomTypeDescription" rows="3"
+                                placeholder="Masukkan deskripsi jenis kamar"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="roomTypePrice" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="roomTypePrice"
+                                placeholder="Masukkan harga kamar">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editRoomTypeModal" tabindex="-1" aria-labelledby="editRoomTypeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editRoomTypeModalLabel">Edit Jenis Kamar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editRoomTypeName" class="form-label">Nama Jenis Kamar</label>
+                            <input type="text" class="form-control" id="editRoomTypeName" value="Double Room">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRoomTypeDescription" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="editRoomTypeDescription"
+                                rows="3">Kamar untuk 2 orang</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRoomTypePrice" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="editRoomTypePrice" value="500000">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Perbarui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

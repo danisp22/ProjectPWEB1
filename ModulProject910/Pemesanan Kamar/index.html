@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Kamar Hotel</title>
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/style.css">
+</head>
+
+<body>
+    <header class="text-white text-center py-5" style="background-color: #3F72AF;">
+        <h1>Form Reservasi Kamar Hotel</h1>
+        <p>Silakan lengkapi form berikut untuk memesan kamar</p>
+    </header>
+
+    <div class="container py-5">
+
+        <form id="formPemesanan">
+
+            <div class="mb-4">
+                <label for="idPemesan" class="form-label fw-semibold">ID Pemesan</label>
+                <input type="number" class="form-control" id="idPemesan" placeholder="Masukkan ID Pemesan" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="namaPemesan" class="form-label fw-semibold">Nama Pemesan</label>
+                <input type="text" class="form-control" id="namaPemesan" placeholder="Masukkan Nama Lengkap" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="jenisKelamin" class="form-label fw-semibold">Jenis Kelamin</label>
+                <div class="d-flex gap-5">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="l" value="Laki-Laki">
+                        <label class="form-check-label" for="l">Laki-Laki</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="p" value="Perempuan">
+                        <label class="form-check-label" for="p">Perempuan</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="nomorIdentitas" class="form-label fw-semibold">Nomor Identitas</label>
+                <input type="number" class="form-control" id="nomorIdentitas" placeholder="Masukkan Nomor Identitas"
+                    required>
+                <small id="errorNomorIdentitas" class="text-danger" style="display: none;">Angka harus 16 digit</small>
+            </div>
+
+            <div class="mb-4">
+                <label for="tipeKamar" class="form-label fw-semibold">Tipe Kamar</label>
+                <select class="form-select" id="tipeKamar" required>
+                    <option selected disabled value="-">Pilih Tipe Kamar</option>
+                    <option value="deluxe">Deluxe</option>
+                    <option value="family">Family</option>
+                    <option value="standard">Standard</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="harga" class="form-label fw-semibold">Harga</label>
+                <input type="number" class="form-control" id="harga" placeholder="Harga per malam" readonly>
+            </div>
+
+            <div class="mb-4">
+                <label for="tanggalPesan" class="form-label fw-semibold">Tanggal Pesan</label>
+                <input type="date" class="form-control" id="tanggalPesan" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="durasiMenginap" class="form-label fw-semibold">Jumlah Hari Menginap</label>
+                <input type="number" class="form-control" id="durasiMenginap"
+                    placeholder="Masukkan jumlah hari menginap" required>
+            </div>
+
+            <div class="form-check mb-4">
+                <input type="checkbox" class="form-check-input" id="breakfast">
+                <label class="form-check-label" for="breakfast">Termasuk Breakfast</label>
+            </div>
+
+            <div class="mb-4">
+                <label for="totalBayar" class="form-label fw-semibold">Total Bayar</label>
+                <input type="number" class="form-control" id="totalBayar" placeholder="Total akan dihitung otomatis"
+                    readonly>
+            </div>
+
+            <div class="d-flex gap-5 justify-content-center align-items-center">
+                <button type="submit" id="btnSimpan" class="btn btn-success col-2 py-2">Simpan</button>
+                <button type="reset" class="btn btn-danger col-2 py-2">Batal</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="modal fade" id="modalStruk" tabindex="-1" aria-labelledby="modalStrukLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalStrukLabel">Detail Pemesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>ID Pemesan:</strong> <span id="modalIdPemesan"></span></p>
+                    <p><strong>Nama Pemesan:</strong> <span id="modalNamaPemesan"></span></p>
+                    <p><strong>Jenis Kelamin:</strong> <span id="modalJenisKelamin"></span></p>
+                    <p><strong>Nomor Identitas:</strong> <span id="modalNomorIdentitas"></span></p>
+                    <p><strong>Tipe Kamar:</strong> <span id="modalTipeKamar"></span></p>
+                    <p><strong>Tanggal Pesan:</strong> <span id="modalTanggalPesan"></span></p>
+                    <p><strong>Durasi Menginap:</strong> <span id="modalDurasiMenginap"></span> hari</p>
+                    <p><strong>Total Bayar:</strong> Rp <span id="modalTotalBayar"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center py-3">
+        <p class="mb-0">© 2025 Best Hotel. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const nomorIdentitas = document.getElementById('nomorIdentitas');
+        const errorNomorIdentitas = document.getElementById('errorNomorIdentitas');
+
+        nomorIdentitas.addEventListener('input', function () {
+            const value = nomorIdentitas.value;
+
+            if (value.length !== 16) {
+                errorNomorIdentitas.style.display = 'block';
+            } else {
+                errorNomorIdentitas.style.display = 'none';
+            }
+        });
+
+        const tipeKamar = document.getElementById('tipeKamar');
+        const harga = document.getElementById('harga');
+        const durasiMenginap = document.getElementById('durasiMenginap');
+        const breakfast = document.getElementById('breakfast');
+        const totalBayar = document.getElementById('totalBayar');
+
+        tipeKamar.addEventListener('change', function () {
+            const hargaKamar = {
+                deluxe: 1000000,
+                family: 500000,
+                standard: 300000,
+            };
+            harga.value = hargaKamar[this.value] || 0;
+            hitungTotal();
+        });
+
+        durasiMenginap.addEventListener('input', hitungTotal);
+        breakfast.addEventListener('change', hitungTotal);
+
+        function hitungTotal() {
+            const durasi = parseInt(durasiMenginap.value) || 0;
+            const includeBreakfast = breakfast.checked ? 80000 : 0;
+            const subtotal = (parseInt(harga.value) || 0) * durasi + includeBreakfast;
+            const diskon = durasi > 3 ? subtotal * 0.1 : 0;
+            totalBayar.value = subtotal - diskon;
+        }
+
+        document.getElementById('formPemesanan').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('modalIdPemesan').innerText = document.getElementById('idPemesan').value;
+            document.getElementById('modalNamaPemesan').innerText = document.getElementById('namaPemesan').value;
+            document.getElementById('modalJenisKelamin').innerText = document.querySelector('input[name="jenisKelamin"]:checked')?.value || '-';
+            document.getElementById('modalNomorIdentitas').innerText = document.getElementById('nomorIdentitas').value;
+            document.getElementById('modalTipeKamar').innerText = document.getElementById('tipeKamar').value;
+            document.getElementById('modalTanggalPesan').innerText = document.getElementById('tanggalPesan').value;
+            document.getElementById('modalDurasiMenginap').innerText = document.getElementById('durasiMenginap').value || 0;
+            document.getElementById('modalTotalBayar').innerText = document.getElementById('totalBayar').value || 0;
+
+            const modal = new bootstrap.Modal(document.getElementById('modalStruk'));
+            modal.show();
+        });
+    </script>
+</body>
+
+</html>
